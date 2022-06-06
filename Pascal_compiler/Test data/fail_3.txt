@@ -1,0 +1,11 @@
+procedure Average(p1,p2,p3:integer;var p4:integer);
+var p1:integer;    
+     
+begin
+    sum:=p1+p2+p3;
+end;
+var x:integer;
+begin
+x:=2;
+Average(5,3,4,x);
+end.

@@ -1,0 +1,19 @@
+var A,B,C,D,E,F: integer;
+
+begin
+
+    A:=2;
+    B:=3;
+    C:=2;
+    D:=3;
+    E:=5;
+    F:=7;
+    
+    if (A=1) and (B>2) and (C<3) or (D=4) or (E<5) and (F=6) then
+        
+        F:=10
+        
+    else
+        
+        F:=11
+end.

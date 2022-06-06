@@ -1,0 +1,12 @@
+var x,y,z,a,b,c:integer;
+begin
+    if (x=5) and (y>6) and (z<7) or (a=2) then
+    begin
+        b:=33;
+    end
+    else
+    begin
+         c:=44;
+    end
+end.
+

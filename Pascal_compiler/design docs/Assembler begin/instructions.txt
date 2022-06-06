@@ -1,0 +1,32 @@
+Below are some of the instruction that get created in FR and Statement depending on what kind a variable is being used.
+
+Below are assembler instruction that would be created in FR.
+
+// global variable
+mov  eax, [ebp+offset] 
+
+// local variable
+mov eax,[edi-offset] 
+
+// parameter variable passed by copy
+mov eax,[edi+offset] 
+
+// parameter variable passed by reference
+mov esi,[edi+offset] 
+mov eax,[esi]
+
+
+Below are assembler instruction that would be created in Statement.
+
+// global variable
+mov   [ebp+offset],eax 
+
+// local variable
+mov [edi-offset], eax 
+
+// parameter variable passed by copy
+mov [edi+offset],eax 
+
+// parameter variable passed by reference
+mov esi,[edi+offset] 
+mov [esi],eax

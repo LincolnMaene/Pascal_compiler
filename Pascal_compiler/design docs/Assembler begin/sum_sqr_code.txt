@@ -1,0 +1,15 @@
+procedure sumdiffsqr (p1:integer; p2:integer; var sumsqr,diffsqr:integer);
+var sum,diff:integer;
+begin
+   sum:=p1+p2;   
+   sumsqr := sum * sum;
+   diff:=p1-p2;
+   diffsqr := diff * diff;
+end;
+
+var
+ssqr,dsqr:integer;
+
+begin
+	sumdiffsqr(10,6-1,ssqr,dsqr);
+end.

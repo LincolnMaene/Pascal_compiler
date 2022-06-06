@@ -1,0 +1,5 @@
+﻿  Main.cpp
+C:\Users\Lincoln Maene\source\repos\Pascal_compiler\Pascal_compiler\CParser.h(239,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lincoln Maene\source\repos\Pascal_compiler\Pascal_compiler\CParser.h(258,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lincoln Maene\source\repos\Pascal_compiler\Pascal_compiler\Symbol_table.h(373): warning C4715: 'SymbolTable::set_function_return_type': not all control paths return a value
+  Pascal_compiler.vcxproj -> C:\Users\Lincoln Maene\source\repos\Pascal_compiler\Debug\Pascal_compiler.exe

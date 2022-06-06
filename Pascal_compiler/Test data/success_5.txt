@@ -1,0 +1,14 @@
+function abs(p1:integer):integer;
+
+begin    
+   abs:=p1;
+end;
+
+var r:integer;
+
+begin
+
+
+r:=abs(5);
+end.
+

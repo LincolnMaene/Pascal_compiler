@@ -1,0 +1,15 @@
+var p1,y,z:integer;
+	a,b: boolean;
+
+begin
+
+   if p1 then    
+
+    	begin 
+
+          
+
+    	end
+
+
+end.

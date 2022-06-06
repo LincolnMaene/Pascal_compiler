@@ -1,0 +1,71 @@
+          mov eax, 0
+              mov [ebp + 8], eax
+              mov eax, 10
+              mov [ebp + 0], eax
+
+       TopWhile1:
+              mov eax, [ebp + 0]
+              mov ebx, 0
+              cmp eax, ebx
+              JG  BeginWhile1 
+ 
+              JMP EndWhile1
+
+       BeginWhile1:
+              mov eax, 0
+              mov [ebp + 4], eax
+
+       TopWhile2:
+              mov eax, [ebp + 4]
+              mov ebx, 10
+              cmp eax, ebx
+              JL  BeginWhile2
+
+              JMP EndWhile2
+
+       BeginWhile2:
+
+              mov eax, [ebp + 4]
+              mov ebx, 1
+              add eax, ebx
+
+              mov [ebp + 4], eax
+              mov eax, [ebp + 8]
+              mov ebx, 1
+              add eax, ebx
+
+              mov [ebp + 8], eax
+              jmp TopWhile2
+
+       EndWhile2:
+              mov eax, 0
+              mov [ebp + 4], eax
+
+       TopWhile3:
+              mov eax, [ebp + 4]
+              mov ebx, 10
+              cmp eax, ebx
+              JL BeginWhile3
+              JMP EndWhile3
+
+       BeginWhile3:
+              mov eax, [ebp + 4]
+              mov ebx, 1
+              add eax, ebx
+
+              mov [ebp + 4], eax
+              mov eax, [ebp + 8]
+              mov ebx, 1
+              add eax, ebx
+
+              mov [ebp + 8], eax
+              jmp TopWhile3
+
+       EndWhile3:
+              mov eax, [ebp + 0]
+              mov ebx, 1
+              sub eax, ebx
+              mov [ebp + 0], eax
+              jmp TopWhile1
+
+       EndWhile1:

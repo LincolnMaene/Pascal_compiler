@@ -1,0 +1,112 @@
+Lincoln,
+
+Below is one of my test programs.  
+
+When I stepped through your assembler code I noticed that your used registers get off.  After the division you start using ECX and EDX instread of EAX and EBX.  Your missing freeing a register in some location.
+
+The procedure Doit with no parameters does not create the correct assembler code.  Missing both the header and the footer.  This crashes when stepping through the assembler code.
+
+var x,y,sum:integer; 
+
+var A:integer;     
+
+ 
+
+procedure doit();
+
+begin
+
+  
+
+end;
+
+ 
+
+procedure SumAvg(P1,P2:integer; var Avg,loc:integer);
+
+ 
+
+var s,t:integer;   
+
+begin
+
+    s:=P1+P2;
+
+    sum:=s;
+
+    Avg:=sum/2;
+
+    Avg:=Avg+1;
+
+end;
+
+ 
+
+begin
+
+    x:=5;
+
+    y:=7;
+
+    SumAvg(5,y,A,sum);
+
+    doit();
+
+end.
+
+
+If I put the following instructions below into the procedure SumAvg it crashes your compiler.  Each of these should compile and I'm testing what kind of assembler is produced.
+
+    p1:=65;
+
+    p2:=66;
+
+    loc:=99;
+
+    t:=97;
+
+When I tested your compiler with the code given on the assignment your paramters went on in the wrong order.  The first parameter should alway go on last that way [edi+8] will retrieve it.
+
+original code:
+
+var x,y,sum:integer;  
+
+var A:integer;      
+
+ 
+
+procedure SumAvg(var Avg:integer; P2, P1:integer);
+
+ 
+
+ 
+
+var s:integer;    
+
+ 
+
+begin
+
+    s:=P1+P2;
+
+    sum:=s;
+
+    Avg:=sum/2;
+
+    Avg:=Avg+1;
+
+end;
+
+begin
+
+    x:=5;
+
+    y:=7;
+
+    SumAvg(A,y,x);
+
+end.
+
+
+Lincoln I will give you some points back if you fix.
+

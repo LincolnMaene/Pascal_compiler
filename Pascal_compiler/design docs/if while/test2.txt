@@ -1,0 +1,13 @@
+var x,y,z,a,b:integer;
+begin
+    x:=0;
+    y:=0;
+    z:=0;
+    a:=0;
+    b:=0;
+    while (x=5) or (y>6) and(z<7) or (a=2) do
+    begin
+        b:=33;
+    end
+end.
+

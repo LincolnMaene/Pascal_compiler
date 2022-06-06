@@ -1,0 +1,75 @@
+#include <iostream>
+
+
+using namespace std;
+
+char DataSegment[65536];
+
+
+
+
+int main()
+{
+ 
+ _asm{
+	 push eax
+	 push ebp
+	 push edi
+	 push esp
+	 push ecx
+
+	 lea ebp, DataSegment  // put starting address of data segement into ebp
+	 jmp kmain    // jump around all of the procedures
+
+ doit:
+	 push edi        // save old edi
+	 mov edi, esp    // Put the current stack pointer into edi
+
+	 // ************************  p3 := p2 + p1;  ************************
+	 mov eax, [edi + 12] // store parameter #2 into eax
+	 mov ebx, [edi + 8]  // stove parameter #1 into ebx
+	 add eax, ebx     // add ebx to eax storing result in eax
+	 mov esi, [edi + 16] // Store the address of parameter #3 into esi
+	 mov[esi], eax // store the sum in the third parameter passed in by reference
+	               // in this example eax is stored in data segment
+
+	 pop edi     // resore old edi
+	 ret 12
+
+
+
+kmain:
+
+	 // ************************  x:=5;  ************************
+	 mov  DWORD PTR [ebp+1], 5   // store 5 into x
+
+     // ************************  y:=10;  ************************
+	 mov  DWORD PTR [ebp+5], 10   // store 10 into y
+
+	 // ************************ z:=0;  ************************
+	 mov  DWORD PTR [ebp+9], 0   // store 0 into z
+
+	
+	 // ************************ doit(x, y, z);  ************************
+	 mov  eax,9              // put the offset of z into eax
+	 add  eax,ebp            // add the starting address of data segment to the offset
+	 push eax                    // push the address of (z) on to the stack
+
+	 mov eax, DWORD PTR[ebp + 5]
+	 push eax					// push a copy of (y) on to the stack
+
+	 mov eax,DWORD PTR [ebp+1]
+	 push eax                   // push a copy of (x) on to the stack
+
+	 call doit
+
+	 nop
+	 pop ecx
+	 pop esp
+	 pop edi
+	 pop ebp
+	 pop eax
+
+ }
+	return 0;
+}

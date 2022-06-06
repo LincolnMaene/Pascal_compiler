@@ -1,0 +1,27 @@
+procedure kig();
+begin
+end;
+
+var a,b:integer;
+    d:char;
+procedure Add(p1,p2:integer;var p3:integer);
+var x:integer;
+    procedure localproc(p4:integer);
+    var helpme:char;
+    begin
+    end;
+
+begin
+    a:=3;
+    p1:=4;
+    x:=3;
+    localproc(4);
+end;
+
+function func1(p1,p2:integer;var p3:integer) : boolean;
+var y:integer;
+begin
+  func1:= false;
+end;
+    
+var x,y,z:integer;

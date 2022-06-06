@@ -1,0 +1,210 @@
+#include <iostream>
+
+using namespace std;
+
+char DataSegment[65536];
+
+ 
+
+int main()
+
+{
+
+ 
+
+ _asm{
+
+        push eax         // Assembler header for all programs (Top)
+
+        push ebx
+
+        push ecx
+
+        push edx
+
+        push ebp
+
+        push edi
+
+        push esi
+
+        push esp
+
+ 
+
+      
+
+        lea ebp, DataSegment
+
+        jmp kmain       // Assembler header for all programs (Bottom)
+
+ 
+
+ SumAvg:  // top of the procedure
+
+        push edi     // Assembler procedure heading for all procedures (Top)
+
+        mov edi, esp  
+
+        sub esp,4  // Make room for local variables on stack
+
+                   // In this example we have one integer so 4 bytes
+
+                   // If you have one integer and two booleans then subtract by 6
+
+ 
+
+        push eax
+
+        push ebx
+
+        push ecx
+
+        push edx
+
+        push ebp
+
+        push edi
+
+        push esi
+
+        push esp    // Assembler procedure heading for all procedures (Bottom)
+
+ 
+
+        mov eax, [edi+8]   //   s:=P1+P2;
+
+        mov ebx, [edi+12]
+
+        add eax,ebx
+
+        mov[edi-4],eax
+
+ 
+
+        mov eax, [edi-4]  //     sum:=s;
+
+        mov[ebp+8],eax
+
+ 
+
+        mov eax, [ebp+8]   //    Avg:=sum/2;
+
+        mov ebx, 2
+
+                   
+
+        push edx           // (extra work for division)
+
+        cdq
+
+        idiv ebx
+
+        pop edx
+
+ 
+
+        mov esi, [edi + 16]  // (extra work for pass by reference)
+
+ 
+
+        mov [esi],eax
+
+ 
+
+        pop esp    // Assembler procedure footer for all procedures (Top)
+
+        pop esi
+
+        pop edi
+
+        pop ebp
+
+        pop edx
+
+        pop ecx
+
+        pop ebx
+
+        pop eax
+
+ 
+
+        add esp,4
+
+ 
+
+        pop edi
+
+ 
+
+        ret 12    // Assembler procedure footer for all procedures (Bottom)
+
+                  // ret 12 takes 3 parameters off of the stack and returns to the calling procedure
+
+ 
+
+ kmain:  // label for the start of the main program
+
+ 
+
+        mov eax,5    //    x:=5;
+
+        mov[ebp+0],eax
+
+ 
+
+        mov eax,7    //    y:=7;
+
+        mov [ebp+4],eax
+
+ 
+
+        mov eax,12   //    SumAvg(x,y,A);
+
+        add eax,ebp
+
+        push eax   //  3rd parameter passed by reference
+
+ 
+
+        mov eax, [ebp+4]  
+
+        push eax   //  2nd parameter passed by value                   
+
+ 
+
+        mov eax,[ebp+0]
+
+        push eax    //  1st parameter passed by value                               
+
+ 
+
+        call SumAvg  //  This instuction will jump to SumAvg and put the return address on the stack
+
+ 
+
+        pop esp    // Assembler footer for all programs (Top)
+
+        pop esi
+
+        pop edi
+
+        pop ebp
+
+        pop edx
+
+        pop ecx
+
+        pop ebx
+
+        pop eax    // Assembler footer for all programs (Bottom)
+
+ 
+
+ }
+
+       return 0;
+
+}
+

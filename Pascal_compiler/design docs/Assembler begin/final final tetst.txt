@@ -1,0 +1,42 @@
+var x,y,sum:integer; 
+var A:integer;       
+
+
+procedure doit();
+
+begin
+
+  
+
+end;
+
+
+procedure SumAvg(P1,P2:integer; var Avg, loc:integer);
+
+
+var s,t:integer;    
+begin
+    s:=P1+P2;
+    sum:=s;
+    Avg:=sum/2;
+    Avg:=Avg+1;
+
+    p1:=65;
+
+    p2:=66;
+
+    loc:=99;
+
+    t:=97;
+
+end;
+
+
+begin
+    x:=5;
+    y:=7;
+
+    SumAvg(5,y,A,sum);
+    doit();
+
+end.

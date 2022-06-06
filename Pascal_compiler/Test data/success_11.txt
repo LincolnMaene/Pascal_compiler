@@ -1,0 +1,11 @@
+var x,y,z:integer; 
+
+
+
+begin
+
+    y:=10;
+    z:=30;
+    x:=10*y-3*z;
+end.
+

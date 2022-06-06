@@ -1,0 +1,39 @@
+var x,z,a,b,c,d,e,g,h,i,f: integer;
+begin
+
+    x:=0;
+    z:=0;
+    a:=0;
+    b:=0;
+    c:=0;
+    d:=0;
+    e:=0;
+    g:=0;
+    h:=0;
+    i:=0;
+    f:=0;
+    
+    if (x<5) or (z=6) then
+    begin
+        while(a=5) and (b>3) do
+        begin
+            b:=b+1;
+            while(c=6) and (d=5) or (e<7) do
+            begin
+                e:=e+1;
+            end
+            
+        end;
+        while(g>3) or (h=2) and (i=3) do
+        begin
+            g:=g-1;
+        end
+        
+    end
+    else
+    begin
+        f:=f+1;
+    end;
+  
+end.
+

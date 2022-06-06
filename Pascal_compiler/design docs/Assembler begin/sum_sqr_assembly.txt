@@ -1,0 +1,108 @@
+// start of header for main
+#include <iostream>
+
+
+using namespace std;
+
+char DataSegment[65536];
+
+
+
+
+int main()
+{
+ 
+ _asm{
+	 push eax  // store registers
+	 push ebp
+	 push edi
+	 push esp
+	 push ecx
+	 push edx
+
+	 lea ebp, DataSegment  // put starting address of data segement into ebp
+	 jmp kmain    // jump around all of the procedures
+// end of header for main
+
+// start of header for procedure sumdiffsqr
+sumdiffsqr :
+	 push edi        // save old edi
+	 mov edi, esp    // Put the current stack pointer into edi
+
+     sub esp,8    // make room for two local variables
+
+	push eax  // store registers
+	push ebp
+	push edi
+	push esp
+	push ecx
+	push edx
+	// end of header for procedure sumdiffsqr
+	
+	// sum : = p1 + p2;
+	// diff: = p1 = p2;
+	// sumsqr: = sum * sum;
+	// diffsqr: = diff * diff;
+
+	mov EAX,[edi+8]
+	mov EBX,[edi+12]
+	add EAX,EBX
+	mov [edi-4],EAX
+	mov EAX,[edi-4]
+	mov EBX,[edi-4]
+	imul EAX,EBX
+	mov esi, [edi +16]
+	mov [esi],EAX
+
+
+// start of footer for procedure sumdiffsqr
+  
+
+	pop edx  // restore the registers
+	pop ecx
+	pop esp
+	pop edi
+	pop ebp
+	pop eax
+
+    add esp, 8    // remove two local variables
+
+	 pop edi     // resore old edi
+	 ret 16
+// end of footer for procedure sumdiffsqr
+
+
+
+kmain:
+
+
+
+	
+	 // ************************ sumdiffsqr(10,6-1,ssqr,dsqr);  ************************
+	 mov  eax,4              // put the offset of dsqr into eax
+	 add  eax,ebp            // add the starting address of data segment to the offset
+	 push eax                // push the address of (dsqr) on to the stack
+
+	 mov  eax, 0              // put the offset of ssqr into eax
+	 add  eax, ebp            // add the starting address of data segment to the offset
+	 push eax                // push the address of (ssqr) on to the stack
+
+	 mov eax, 5
+	 push eax					// push a copy of (5) on to the stack
+
+	 mov eax,10
+	 push eax                   // push a copy of (10) on to the stack
+
+	 call sumdiffsqr
+// start of footer for main
+	 pop edx   // restore the registers
+	 pop ecx
+	 pop esp
+	 pop edi
+	 pop ebp
+	 pop eax
+
+ }
+	return 0;
+}
+// end of footer for main

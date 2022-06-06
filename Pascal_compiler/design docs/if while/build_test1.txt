@@ -1,0 +1,19 @@
+var x,z:integer;
+begin
+  x:=0;
+  z:=0;
+  while x<5 do
+  begin
+  
+    x:=x+5;
+    while z>3 do
+    
+    begin
+    
+        z:=z-1
+    
+    end
+  
+  end
+  
+end.

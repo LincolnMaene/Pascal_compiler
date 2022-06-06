@@ -1,0 +1,9 @@
+var x,y:integer; 
+
+
+
+begin
+    y:=10;
+    x:=5*6+y*(7-2);
+end.
+

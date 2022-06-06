@@ -1,0 +1,15 @@
+procedure doit (p1:integer; p2:integer; var p3:integer);
+begin
+p3 := p2 + p1;
+end;
+
+var
+done  : boolean;
+x,y,z : integer;
+
+begin
+x:=5;
+y:=10;
+z:=0;
+doit(x,y,z);
+end.

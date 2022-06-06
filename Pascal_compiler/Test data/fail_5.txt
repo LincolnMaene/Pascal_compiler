@@ -1,0 +1,8 @@
+var x,y,z:integer;
+	a,b: boolean;
+
+begin
+
+	b:= x=y and a; 
+	b:= (x=y) and a; 
+end.

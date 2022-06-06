@@ -1,0 +1,13 @@
+procedure Average(p1,p2,p3:integer;var p4:integer);
+var sum:integer;    
+     
+begin
+    sum:=p1+p2+p3;
+end;
+var x:integer;
+var y:integer;
+begin
+x:=2;
+y:=2;
+Average(x+y,3+4,4,x);
+end.

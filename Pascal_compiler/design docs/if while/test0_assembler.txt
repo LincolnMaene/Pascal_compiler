@@ -1,0 +1,29 @@
+             	mov       EAX,[x]
+                mov       EBX,5
+                cmp       EAX,EBX
+                JNE         OR1
+
+                mov       EAX,[y]
+                mov       EBX,6
+                cmp       EAX,EBX
+                JLE          OR1
+
+                mov       EAX,[z]
+                mov       EBX,7
+                cmp       EAX,EBX
+                JL            IF1
+
+OR1:      	mov       EAX,[a]
+                mov       EBX,2
+                cmp       EAX,EBX
+                JE         IF1
+
+                JMP      EE1
+
+IF1:         	mov       EAX,33
+                mov       [B],EAX
+                JMP       END1
+
+EE1:        	mov       EAX,44
+                mov       [C],EAX
+END1:

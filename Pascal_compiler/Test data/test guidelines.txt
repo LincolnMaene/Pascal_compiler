@@ -1,0 +1,18 @@
+duplicate identifiers in parameter list of procedure
+	not allowed
+	not even variables with same name as params
+	params and local variables have unique names when declared
+litterals should be allowed as parameters
+	passed by copy
+passing a literal when something is passed by ref should fail
+functions can have expressions as param
+	average(x+y, 5+3)
+
+var x,y,z:integer;
+	a,b: boolean;
+
+begin
+
+	b:= x=y and a; //should fail  cuz AND has precedance
+	b:= (x=y) and a; // should succeed
+end.

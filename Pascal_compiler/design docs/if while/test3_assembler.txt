@@ -1,0 +1,27 @@
+TW1:      	mov       EAX,[x]
+                mov       EBX,5
+                cmp       EAX,EBX
+                JNE         OR1
+
+                mov       EAX,[y]
+                mov       EBX,6
+                cmp       EAX,EBX
+                JG           IW1
+
+OR1:      	mov       EAX,[z]
+                mov       EBX,7
+                cmp       EAX,EBX
+                JGE         OR2
+
+                mov       EAX,[a]
+                mov       EBX,2
+                cmp       EAX,EBX
+                JE            IW1
+
+OR2:      	JMP       EW1
+
+IW1:       	mov       EAX,33
+                mov       [B],EAX
+                JMP       TW1
+
+EW1:

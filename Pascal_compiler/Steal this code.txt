@@ -1,0 +1,15 @@
+int main()
+{
+       CLex LEX("code.txt");
+      
+       CToken TOKEN;
+       while (LEX.GetToken(TOKEN))
+       {
+              cout << TOKEN.tokenType << " " << TOKEN.tokenValue << endl;
+             
+             
+       }
+       system("pause");
+    return 0;
+}
+

@@ -1,0 +1,12 @@
+var x,y,z:integer; 
+      a,b,c:boolean;
+procedure Average(p1,p2,p3:integer;var p4:integer);
+var sum:integer;    
+      done:boolean;
+begin
+    a:=true;
+    sum:=p1+p2+p3;
+    kig:=50;      
+    sum:=done;   
+    p4:=sum/3;
+end;
